@@ -3,253 +3,353 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>足球赛事实时赛程</title>
+    <title>竞彩足球赛事专业分析</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Microsoft Yahei", sans-serif;
+            font-family: "Microsoft YaHei", sans-serif;
         }
+
         body {
-            background-color: #0f172a;
-            color: #f1f5f9;
-            padding: 20px;
+            background: #0B1120;
+            color: #EAECEF;
+            padding: 15px;
         }
+
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
         }
-        h1 {
+
+        /* 赛事头部 */
+        .match-header {
+            background: #161B30;
+            padding: 20px;
+            border-radius: 12px;
             text-align: center;
-            margin: 30px 0;
-            color: #38bdf8;
-        }
-        .nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-        .nav button {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 20px;
-            background: #1e293b;
-            color: #fff;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .nav button.active {
-            background: #38bdf8;
-            color: #000;
-        }
-        .league-nav {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
             margin-bottom: 20px;
-            flex-wrap: wrap;
+            border: 1px solid #252D4A;
         }
-        .league-nav button {
-            padding: 6px 12px;
+
+        .match-title {
+            font-size: 22px;
+            color: #4DC2FF;
+            margin-bottom: 8px;
+        }
+
+        .match-info {
+            font-size: 14px;
+            color: #94A3B8;
+        }
+
+        .match-no {
+            display: inline-block;
+            background: #FBBF24;
+            color: #000;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        /* 导航栏 */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            background: #161B30;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #252D4A;
+        }
+
+        .tab-btn {
+            padding: 8px 14px;
+            background: #252D4A;
             border: none;
-            border-radius: 15px;
-            background: #334155;
-            color: #cbd5e1;
+            border-radius: 8px;
+            color: #EAECEF;
             cursor: pointer;
+            transition: 0.2s;
             font-size: 13px;
         }
-        .league-nav button.active {
-            background: #0ea5e9;
-            color: #fff;
-        }
-        .match-card {
-            background: #1e293b;
-            border-radius: 12px;
-            padding: 18px;
-            margin-bottom: 15px;
-        }
-        .league-name {
-            color: #94a3b8;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-        .match-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .team {
-            font-size: 17px;
-            width: 35%;
-        }
-        .team.home {
-            text-align: right;
-        }
-        .team.away {
-            text-align: left;
-        }
-        .match-info {
-            text-align: center;
-        }
-        .match-time {
-            background: #38bdf8;
-            color: #000;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 14px;
+
+        .tab-btn.active {
+            background: #4DC2FF;
+            color: #0B1120;
             font-weight: bold;
-            display: inline-block;
         }
-        .match-status {
-            font-size: 12px;
-            color: #94a3b8;
-            margin-top: 5px;
+
+        /* 内容卡片 */
+        .card {
+            background: #161B30;
+            border: 1px solid #252D4A;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: none;
         }
-        .loading {
+
+        .card.active {
+            display: block;
+        }
+
+        .card-title {
+            font-size: 18px;
+            color: #4DC2FF;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #252D4A;
+        }
+
+        /* 表格样式 */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .table th, .table td {
+            padding: 10px;
             text-align: center;
-            padding: 40px;
-            color: #94a3b8;
+            border: 1px solid #252D4A;
+            font-size: 14px;
         }
-        .error {
-            text-align: center;
-            padding: 40px;
-            color: #ef4444;
+
+        .table th {
+            background: #252D4A;
+            color: #4DC2FF;
+        }
+
+        /* 列表样式 */
+        .list {
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .list span {
+            color: #94A3B8;
+        }
+
+        /* 球队板块 */
+        .team-box {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .team-col {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .red {
+            color: #EF4444;
+            font-weight: bold;
+        }
+
+        .green {
+            color: #10B981;
+            font-weight: bold;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>⚽ 足球赛事实时赛程</h1>
-        <div class="nav">
-            <button class="active" onclick="switchDay('today')">今日</button>
-            <button onclick="switchDay('tomorrow')">明日</button>
-            <button onclick="switchDay('week')">本周</button>
+        <!-- 赛事头部信息 -->
+        <div class="match-header">
+            <div class="match-title" id="matchTitle">曼城 VS 阿森纳</div>
+            <div class="match-info">
+                <span id="league">英格兰超级联赛</span> |
+                <span id="matchTime">2025-05-20 22:00</span>
+                <span class="match-no" id="matchNo">周三001</span>
+            </div>
         </div>
-        <div class="league-nav">
-            <button class="active" onclick="filterLeague('all')">全部</button>
-            <button onclick="filterLeague('PL')">英超</button>
-            <button onclick="filterLeague('PD')">西甲</button>
-            <button onclick="filterLeague('SA')">意甲</button>
-            <button onclick="filterLeague('BL1')">德甲</button>
+
+        <!-- 模块导航 -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('feature')">📊 特征分析</button>
+            <button class="tab-btn" onclick="switchTab('history')">⚔️ 历史交锋</button>
+            <button class="tab-btn" onclick="switchTab('table')">📈 积分榜</button>
+            <button class="tab-btn" onclick="switchTab('form')">📊 近期战绩</button>
+            <button class="tab-btn" onclick="switchTab('future')">🔮 未来赛事</button>
+            <button class="tab-btn" onclick="switchTab('scorer')">🥅 核心射手</button>
+            <button class="tab-btn" onclick="switchTab('injury')">🤕 球队伤病</button>
+            <button class="tab-btn" onclick="switchTab('suspend')">🚫 伤停一览</button>
         </div>
-        <div id="matchList" class="loading">正在加载实时赛程...</div>
+
+        <!-- 1. 特征分析 -->
+        <div class="card active" id="feature">
+            <div class="card-title">赛事特征分析</div>
+            <div class="list" id="featureContent"></div>
+        </div>
+
+        <!-- 2. 历史交锋 -->
+        <div class="card" id="history">
+            <div class="card-title">历史交锋记录</div>
+            <table class="table" id="historyTable"></table>
+        </div>
+
+        <!-- 3. 积分榜 -->
+        <div class="card" id="table">
+            <div class="card-title">联赛积分榜</div>
+            <table class="table" id="tableTable"></table>
+        </div>
+
+        <!-- 4. 近期战绩 -->
+        <div class="card" id="form">
+            <div class="card-title">最近5场比赛状态</div>
+            <div class="team-box" id="formContent"></div>
+        </div>
+
+        <!-- 5. 未来赛事 -->
+        <div class="card" id="future">
+            <div class="card-title">未来3场赛程</div>
+            <div class="team-box" id="futureContent"></div>
+        </div>
+
+        <!-- 6. 核心射手 -->
+        <div class="card" id="scorer">
+            <div class="card-title">主力射手 & 状态</div>
+            <div class="team-box" id="scorerContent"></div>
+        </div>
+
+        <!-- 7. 球队伤病 -->
+        <div class="card" id="injury">
+            <div class="card-title">伤病名单（出战成疑/缺阵）</div>
+            <div class="team-box" id="injuryContent"></div>
+        </div>
+
+        <!-- 8. 伤停一览 -->
+        <div class="card" id="suspend">
+            <div class="card-title">停赛/重伤确认缺阵</div>
+            <div class="team-box" id="suspendContent"></div>
+        </div>
     </div>
 
     <script>
-        let allMatches = [];
-        let currentDay = 'today';
-        let currentLeague = 'all';
+        // ====================== 【核心】所有数据在这里修改（对标竞彩网） ======================
+        const matchData = {
+            // 基础信息
+            title: "曼城 VS 阿森纳",
+            league: "英格兰超级联赛",
+            time: "2025-05-20 22:00",
+            no: "周三001",
 
-        // 联赛名称映射
-        const leagueNames = {
-            'PL': '英格兰超级联赛',
-            'PD': '西班牙甲级联赛',
-            'SA': '意大利甲级联赛',
-            'BL1': '德国甲级联赛'
+            // 1 特征分析
+            feature: [
+                "曼城主场10连胜，攻防两端表现顶级",
+                "阿森纳客场7胜2平，不败率极高",
+                "本场为争冠关键战，双方战意拉满",
+                "历史交锋曼城近3次2胜1平占优"
+            ],
+
+            // 2 历史交锋
+            history: [
+                { date: "2025-01-15", home: "曼城", away: "阿森纳", result: "2-1", league: "英超" },
+                { date: "2024-09-03", home: "阿森纳", away: "曼城", result: "0-0", league: "英超" },
+                { date: "2024-04-20", home: "曼城", away: "阿森纳", result: "3-0", league: "英超" }
+            ],
+
+            // 3 积分榜
+            table: [
+                { rank: 1, team: "曼城", played: 36, win: 27, draw: 5, lose: 4, points: 86 },
+                { rank: 2, team: "阿森纳", played: 36, win: 26, draw: 6, lose: 4, points: 84 },
+                { rank: 3, team: "利物浦", played: 36, win: 24, draw: 7, lose: 5, points: 79 }
+            ],
+
+            // 4 近期战绩
+            form: {
+                曼城: "胜 胜 胜 平 胜",
+                阿森纳: "胜 胜 平 胜 胜"
+            },
+
+            // 5 未来赛事
+            future: {
+                曼城: "2025-05-25 切尔西 | 2025-05-30 曼联 | 2025-06-05 布莱顿",
+                阿森纳: "2025-05-24 热刺 | 2025-05-29 西汉姆 | 2025-06-02 纽卡"
+            },
+
+            // 6 核心射手
+            scorer: {
+                曼城: "哈兰德（32球）、德布劳内（7球15助）、福登（11球）",
+                阿森纳: "萨卡（14球）、厄德高（12球）、热苏斯（10球）"
+            },
+
+            // 7 伤病名单
+            injury: {
+                曼城: "斯通斯（肌肉不适，出战成疑）、沃克（小伤，待定）",
+                阿森纳: "廷贝尔（脚踝，出战成疑）、史密斯罗（休整）"
+            },
+
+            // 8 伤停一览
+            suspend: {
+                曼城: "无停赛，无重伤缺阵",
+                阿森纳: "无停赛，无重伤缺阵"
+            }
         };
 
-        // 加载数据
-        async function loadMatches() {
-            try {
-                const response = await fetch('matches.json');
-                if (!response.ok) throw new Error('数据加载失败');
-                allMatches = await response.json();
-                renderMatches();
-            } catch (error) {
-                document.getElementById('matchList').innerHTML = `
-                    <div class="error">加载赛程失败，请稍后重试</div>
-                `;
-            }
+        // 初始化页面
+        initPage();
+
+        // 切换模块
+        function switchTab(id) {
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.target.classList.add('active');
         }
 
-        // 筛选比赛
-        function getFilteredMatches() {
-            const now = new Date();
-            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-            const tomorrow = new Date(today);
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            const weekEnd = new Date(today);
-            weekEnd.setDate(weekEnd.getDate() + 7);
+        // 渲染所有数据
+        function initPage() {
+            document.getElementById('matchTitle').innerText = matchData.title;
+            document.getElementById('league').innerText = matchData.league;
+            document.getElementById('matchTime').innerText = matchData.time;
+            document.getElementById('matchNo').innerText = matchData.no;
 
-            return allMatches.filter(match => {
-                const matchDate = new Date(match.date);
-                const matchDay = new Date(matchDate.getFullYear(), matchDate.getMonth(), matchDate.getDate());
+            // 特征分析
+            document.getElementById('featureContent').innerHTML = matchData.feature.map(i => `<div>• ${i}</div>`).join('');
 
-                // 日期筛选
-                let dateMatch = false;
-                if (currentDay === 'today') {
-                    dateMatch = matchDay.getTime() === today.getTime();
-                } else if (currentDay === 'tomorrow') {
-                    dateMatch = matchDay.getTime() === tomorrow.getTime();
-                } else if (currentDay === 'week') {
-                    dateMatch = matchDay >= today && matchDay <= weekEnd;
-                }
-
-                // 联赛筛选
-                const leagueMatch = currentLeague === 'all' || match.league === currentLeague;
-
-                return dateMatch && leagueMatch;
-            }).sort((a, b) => new Date(a.date) - new Date(b.date));
-        }
-
-        // 渲染比赛
-        function renderMatches() {
-            const matches = getFilteredMatches();
-            const wrap = document.getElementById("matchList");
-
-            if (matches.length === 0) {
-                wrap.innerHTML = `
-                    <div class="loading">暂无${currentDay === 'today' ? '今日' : currentDay === 'tomorrow' ? '明日' : '本周'}比赛数据</div>
-                `;
-                return;
-            }
-
-            let html = "";
-            matches.forEach(match => {
-                const matchDate = new Date(match.date);
-                const hours = matchDate.getHours().toString().padStart(2, '0');
-                const minutes = matchDate.getMinutes().toString().padStart(2, '0');
-                const timeStr = `${hours}:${minutes}`;
-
-                html += `
-                <div class="match-card">
-                    <div class="league-name">${leagueNames[match.league] || match.league}</div>
-                    <div class="match-row">
-                        <div class="team home">${match.homeTeam}</div>
-                        <div class="match-info">
-                            <div class="match-time">${timeStr}</div>
-                            <div class="match-status">${match.status === 'SCHEDULED' ? '未开赛' : match.status}</div>
-                        </div>
-                        <div class="team away">${match.awayTeam}</div>
-                    </div>
-                </div>
-                `;
+            // 历史交锋
+            let historyHtml = `<tr><th>日期</th><th>主队</th><th>比分</th><th>客队</th><th>赛事</th></tr>`;
+            matchData.history.forEach(item => {
+                historyHtml += `<tr><td>${item.date}</td><td>${item.home}</td><td>${item.result}</td><td>${item.away}</td><td>${item.league}</td></tr>`;
             });
+            document.getElementById('historyTable').innerHTML = historyHtml;
 
-            wrap.innerHTML = html;
+            // 积分榜
+            let tableHtml = `<tr><th>排名</th><th>球队</th><th>场次</th><th>胜</th><th>平</th><th>负</th><th>积分</th></tr>`;
+            matchData.table.forEach(item => {
+                tableHtml += `<tr><td>${item.rank}</td><td>${item.team}</td><td>${item.played}</td><td>${item.win}</td><td>${item.draw}</td><td>${item.lose}</td><td>${item.points}</td></tr>`;
+            });
+            document.getElementById('tableTable').innerHTML = tableHtml;
+
+            // 战绩/未来/射手/伤病/伤停
+            document.getElementById('formContent').innerHTML = renderTeamBox('近期战绩', matchData.form);
+            document.getElementById('futureContent').innerHTML = renderTeamBox('未来赛程', matchData.future);
+            document.getElementById('scorerContent').innerHTML = renderTeamBox('核心射手', matchData.scorer);
+            document.getElementById('injuryContent').innerHTML = renderTeamBox('伤病情况', matchData.injury);
+            document.getElementById('suspendContent').innerHTML = renderTeamBox('伤停信息', matchData.suspend);
         }
 
-        // 切换日期
-        function switchDay(type) {
-            document.querySelectorAll(".nav button").forEach(btn=>btn.classList.remove("active"));
-            event.target.classList.add("active");
-            currentDay = type;
-            renderMatches();
+        // 通用双栏渲染
+        function renderTeamBox(title, data) {
+            const teams = Object.keys(data);
+            return `
+                <div class="team-col">
+                    <h3 style="color:#4DC2FF;margin-bottom:10px">${teams[0]}</h3>
+                    <div class="list">${data[teams[0]]}</div>
+                </div>
+                <div class="team-col">
+                    <h3 style="color:#4DC2FF;margin-bottom:10px">${teams[1]}</h3>
+                    <div class="list">${data[teams[1]]}</div>
+                </div>
+            `;
         }
-
-        // 切换联赛
-        function filterLeague(league) {
-            document.querySelectorAll(".league-nav button").forEach(btn=>btn.classList.remove("active"));
-            event.target.classList.add("active");
-            currentLeague = league;
-            renderMatches();
-        }
-
-        // 页面加载完成后加载数据
-        loadMatches();
     </script>
 </body>
 </html>
