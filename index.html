@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>足球赛事信息汇总</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,Microsoft Yahei}
+body{background:#f0f2f5;padding:20px}
+.container{max-width:900px;margin:0 auto}
+h1{text-align:center;color:#1a73e8;margin-bottom:30px}
+.card{background:#fff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px #00000010}
+.league{color:#666;font-size:14px;margin-bottom:8px}
+.match-row{display:flex;justify-content:space-between;align-items:center}
+.team{font-size:16px;font-weight:500}
+.time{background:#1a73e8;color:#fff;padding:4px 10px;border-radius:20px;font-size:14px}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>今日足球赛事</h1>
+  <div id="matchList"></div>
+</div>
+
+<script>
+// 后续可接入API自动更新，先内置基础结构
+const matchData = [
+  {league:"英超",home:"曼城",away:"阿森纳",time:"22:00"},
+  {league:"西甲",home:"皇马",away:"巴萨",time:"23:30"},
+  {league:"意甲",home:"尤文",away:"国米",time:"02:45"},
+  {league:"德甲",home:"拜仁",away:"多特",time:"21:30"}
+];
+
+const list = document.getElementById("matchList");
+matchData.forEach(item=>{
+  list.innerHTML += `
+  <div class="card">
+    <div class="league">${item.league}</div>
+    <div class="match-row">
+      <div class="team">${item.home}</div>
+      <div class="time">${item.time}</div>
+      <div class="team">${item.away}</div>
+    </div>
+  </div>
+  `;
+});
+</script>
+</body>
+</html>
