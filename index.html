@@ -1,49 +1,134 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>足球赛事信息汇总</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,Microsoft Yahei}
-body{background:#f0f2f5;padding:20px}
-.container{max-width:900px;margin:0 auto}
-h1{text-align:center;color:#1a73e8;margin-bottom:30px}
-.card{background:#fff;border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 2px 8px #00000010}
-.league{color:#666;font-size:14px;margin-bottom:8px}
-.match-row{display:flex;justify-content:space-between;align-items:center}
-.team{font-size:16px;font-weight:500}
-.time{background:#1a73e8;color:#fff;padding:4px 10px;border-radius:20px;font-size:14px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足球赛事信息站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        body {
+            background-color: #0f172a;
+            color: #f1f5f9;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            color: #38bdf8;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .nav button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background: #1e293b;
+            color: #fff;
+            cursor: pointer;
+        }
+        .nav button.active {
+            background: #38bdf8;
+            color: #000;
+        }
+        .match-card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+        .league-name {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .match-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .team {
+            font-size: 17px;
+        }
+        .match-time {
+            background: #38bdf8;
+            color: #000;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #94a3b8;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-  <h1>今日足球赛事</h1>
-  <div id="matchList"></div>
-</div>
-
-<script>
-// 后续可接入API自动更新，先内置基础结构
-const matchData = [
-  {league:"英超",home:"曼城",away:"阿森纳",time:"22:00"},
-  {league:"西甲",home:"皇马",away:"巴萨",time:"23:30"},
-  {league:"意甲",home:"尤文",away:"国米",time:"02:45"},
-  {league:"德甲",home:"拜仁",away:"多特",time:"21:30"}
-];
-
-const list = document.getElementById("matchList");
-matchData.forEach(item=>{
-  list.innerHTML += `
-  <div class="card">
-    <div class="league">${item.league}</div>
-    <div class="match-row">
-      <div class="team">${item.home}</div>
-      <div class="time">${item.time}</div>
-      <div class="team">${item.away}</div>
+    <div class="container">
+        <h1>⚽ 足球赛事赛程</h1>
+        <div class="nav">
+            <button class="active" onclick="switchDay('today')">今日</button>
+            <button onclick="switchDay('tomorrow')">明日</button>
+        </div>
+        <div id="matchList" class="loading">正在加载赛事...</div>
     </div>
-  </div>
-  `;
-});
-</script>
+
+    <script>
+        // 模拟赛事数据，后续我可以帮你改成自动实时抓取真实赛程
+        const matchData = {
+            today: [
+                { league: "英格兰超级联赛", home: "曼城", away: "阿森纳", time: "22:00" },
+                { league: "西班牙甲级联赛", home: "皇家马德里", away: "巴塞罗那", time: "23:30" },
+                { league: "意大利甲级联赛", home: "尤文图斯", away: "AC米兰", time: "02:45" },
+                { league: "德国甲级联赛", home: "拜仁慕尼黑", away: "多特蒙德", time: "21:30" }
+            ],
+            tomorrow: [
+                { league: "英格兰超级联赛", home: "利物浦", away: "切尔西", time: "21:00" },
+                { league: "法国甲级联赛", home: "巴黎圣日耳曼", away: "马赛", time: "23:00" }
+            ]
+        };
+
+        function renderList(list) {
+            const wrap = document.getElementById("matchList");
+            let html = "";
+            list.forEach(item => {
+                html += `
+                <div class="match-card">
+                    <div class="league-name">${item.league}</div>
+                    <div class="match-row">
+                        <div class="team">${item.home}</div>
+                        <div class="match-time">${item.time}</div>
+                        <div class="team">${item.away}</div>
+                    </div>
+                </div>
+                `;
+            });
+            wrap.innerHTML = html;
+        }
+
+        function switchDay(type) {
+            // 按钮激活状态
+            document.querySelectorAll(".nav button").forEach(btn=>btn.classList.remove("active"));
+            event.target.classList.add("active");
+            renderList(matchData[type]);
+        }
+
+        // 默认加载今日
+        renderList(matchData.today);
+    </script>
 </body>
 </html>
