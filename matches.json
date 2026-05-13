@@ -78,27 +78,6 @@
   },
   {
     "league": "PD",
-    "homeTeam": "RC Celta de Vigo",
-    "awayTeam": "Levante UD",
-    "date": "2026-05-12T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Real Betis Balompié",
-    "awayTeam": "Elche CF",
-    "date": "2026-05-12T18:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "CA Osasuna",
-    "awayTeam": "Club Atlético de Madrid",
-    "date": "2026-05-12T19:30:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
     "homeTeam": "RCD Espanyol de Barcelona",
     "awayTeam": "Athletic Club",
     "date": "2026-05-13T17:00:00Z",
@@ -220,35 +199,35 @@
     "league": "SA",
     "homeTeam": "AS Roma",
     "awayTeam": "SS Lazio",
-    "date": "2026-05-17T13:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "SA",
-    "homeTeam": "Atalanta BC",
-    "awayTeam": "Bologna FC 1909",
-    "date": "2026-05-17T13:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "SA",
-    "homeTeam": "Cagliari Calcio",
-    "awayTeam": "Torino FC",
-    "date": "2026-05-17T13:00:00Z",
+    "date": "2026-05-17T10:30:00Z",
     "status": "TIMED"
   },
   {
     "league": "SA",
     "homeTeam": "Genoa CFC",
     "awayTeam": "AC Milan",
-    "date": "2026-05-17T13:00:00Z",
+    "date": "2026-05-17T10:30:00Z",
     "status": "TIMED"
   },
   {
     "league": "SA",
     "homeTeam": "Como 1907",
     "awayTeam": "Parma Calcio 1913",
-    "date": "2026-05-17T13:00:00Z",
+    "date": "2026-05-17T10:30:00Z",
+    "status": "TIMED"
+  },
+  {
+    "league": "SA",
+    "homeTeam": "Juventus FC",
+    "awayTeam": "ACF Fiorentina",
+    "date": "2026-05-17T10:30:00Z",
+    "status": "TIMED"
+  },
+  {
+    "league": "SA",
+    "homeTeam": "AC Pisa 1909",
+    "awayTeam": "SSC Napoli",
+    "date": "2026-05-17T10:30:00Z",
     "status": "TIMED"
   },
   {
@@ -260,30 +239,30 @@
   },
   {
     "league": "SA",
-    "homeTeam": "Juventus FC",
-    "awayTeam": "ACF Fiorentina",
-    "date": "2026-05-17T13:00:00Z",
+    "homeTeam": "Atalanta BC",
+    "awayTeam": "Bologna FC 1909",
+    "date": "2026-05-17T16:00:00Z",
     "status": "TIMED"
   },
   {
     "league": "SA",
-    "homeTeam": "AC Pisa 1909",
-    "awayTeam": "SSC Napoli",
-    "date": "2026-05-17T13:00:00Z",
+    "homeTeam": "Cagliari Calcio",
+    "awayTeam": "Torino FC",
+    "date": "2026-05-17T18:45:00Z",
     "status": "TIMED"
   },
   {
     "league": "SA",
     "homeTeam": "US Sassuolo Calcio",
     "awayTeam": "US Lecce",
-    "date": "2026-05-17T13:00:00Z",
+    "date": "2026-05-17T18:45:00Z",
     "status": "TIMED"
   },
   {
     "league": "SA",
     "homeTeam": "Udinese Calcio",
     "awayTeam": "US Cremonese",
-    "date": "2026-05-17T13:00:00Z",
+    "date": "2026-05-17T18:45:00Z",
     "status": "TIMED"
   },
   {
