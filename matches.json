@@ -1,13 +1,6 @@
 [
   {
     "league": "PL",
-    "homeTeam": "Manchester City FC",
-    "awayTeam": "Crystal Palace FC",
-    "date": "2026-05-13T19:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PL",
     "homeTeam": "Aston Villa FC",
     "awayTeam": "Liverpool FC",
     "date": "2026-05-15T19:00:00Z",
@@ -74,34 +67,6 @@
     "homeTeam": "Chelsea FC",
     "awayTeam": "Tottenham Hotspur FC",
     "date": "2026-05-19T19:15:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "RCD Espanyol de Barcelona",
-    "awayTeam": "Athletic Club",
-    "date": "2026-05-13T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Villarreal CF",
-    "awayTeam": "Sevilla FC",
-    "date": "2026-05-13T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Deportivo Alavés",
-    "awayTeam": "FC Barcelona",
-    "date": "2026-05-13T19:30:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Getafe CF",
-    "awayTeam": "RCD Mallorca",
-    "date": "2026-05-13T19:30:00Z",
     "status": "TIMED"
   },
   {
