@@ -71,27 +71,6 @@
   },
   {
     "league": "PD",
-    "homeTeam": "Valencia CF",
-    "awayTeam": "Rayo Vallecano de Madrid",
-    "date": "2026-05-14T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Girona FC",
-    "awayTeam": "Real Sociedad de Fútbol",
-    "date": "2026-05-14T18:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Real Madrid CF",
-    "awayTeam": "Real Oviedo",
-    "date": "2026-05-14T19:30:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
     "homeTeam": "Athletic Club",
     "awayTeam": "RC Celta de Vigo",
     "date": "2026-05-17T17:00:00Z",
