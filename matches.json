@@ -1,48 +1,6 @@
 [
   {
     "league": "PL",
-    "homeTeam": "Manchester United FC",
-    "awayTeam": "Nottingham Forest FC",
-    "date": "2026-05-17T11:30:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PL",
-    "homeTeam": "Brentford FC",
-    "awayTeam": "Crystal Palace FC",
-    "date": "2026-05-17T14:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PL",
-    "homeTeam": "Everton FC",
-    "awayTeam": "Sunderland AFC",
-    "date": "2026-05-17T14:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PL",
-    "homeTeam": "Leeds United FC",
-    "awayTeam": "Brighton & Hove Albion FC",
-    "date": "2026-05-17T14:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PL",
-    "homeTeam": "Wolverhampton Wanderers FC",
-    "awayTeam": "Fulham FC",
-    "date": "2026-05-17T14:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PL",
-    "homeTeam": "Newcastle United FC",
-    "awayTeam": "West Ham United FC",
-    "date": "2026-05-17T16:30:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PL",
     "homeTeam": "Arsenal FC",
     "awayTeam": "Burnley FC",
     "date": "2026-05-18T19:00:00Z",
@@ -134,76 +92,6 @@
   },
   {
     "league": "PD",
-    "homeTeam": "Athletic Club",
-    "awayTeam": "RC Celta de Vigo",
-    "date": "2026-05-17T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Club Atlético de Madrid",
-    "awayTeam": "Girona FC",
-    "date": "2026-05-17T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Elche CF",
-    "awayTeam": "Getafe CF",
-    "date": "2026-05-17T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Levante UD",
-    "awayTeam": "RCD Mallorca",
-    "date": "2026-05-17T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Rayo Vallecano de Madrid",
-    "awayTeam": "Villarreal CF",
-    "date": "2026-05-17T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Real Sociedad de Fútbol",
-    "awayTeam": "Valencia CF",
-    "date": "2026-05-17T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Real Oviedo",
-    "awayTeam": "Deportivo Alavés",
-    "date": "2026-05-17T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "CA Osasuna",
-    "awayTeam": "RCD Espanyol de Barcelona",
-    "date": "2026-05-17T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "Sevilla FC",
-    "awayTeam": "Real Madrid CF",
-    "date": "2026-05-17T17:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
-    "homeTeam": "FC Barcelona",
-    "awayTeam": "Real Betis Balompié",
-    "date": "2026-05-17T19:15:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "PD",
     "homeTeam": "Deportivo Alavés",
     "awayTeam": "Rayo Vallecano de Madrid",
     "date": "2026-05-23T19:00:00Z",
@@ -270,76 +158,6 @@
     "homeTeam": "Villarreal CF",
     "awayTeam": "Club Atlético de Madrid",
     "date": "2026-05-24T19:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "SA",
-    "homeTeam": "AS Roma",
-    "awayTeam": "SS Lazio",
-    "date": "2026-05-17T10:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "SA",
-    "homeTeam": "Genoa CFC",
-    "awayTeam": "AC Milan",
-    "date": "2026-05-17T10:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "SA",
-    "homeTeam": "Como 1907",
-    "awayTeam": "Parma Calcio 1913",
-    "date": "2026-05-17T10:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "SA",
-    "homeTeam": "Juventus FC",
-    "awayTeam": "ACF Fiorentina",
-    "date": "2026-05-17T10:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "SA",
-    "homeTeam": "AC Pisa 1909",
-    "awayTeam": "SSC Napoli",
-    "date": "2026-05-17T10:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "SA",
-    "homeTeam": "FC Internazionale Milano",
-    "awayTeam": "Hellas Verona FC",
-    "date": "2026-05-17T13:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "SA",
-    "homeTeam": "Atalanta BC",
-    "awayTeam": "Bologna FC 1909",
-    "date": "2026-05-17T16:00:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "SA",
-    "homeTeam": "Cagliari Calcio",
-    "awayTeam": "Torino FC",
-    "date": "2026-05-17T18:45:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "SA",
-    "homeTeam": "US Sassuolo Calcio",
-    "awayTeam": "US Lecce",
-    "date": "2026-05-17T18:45:00Z",
-    "status": "TIMED"
-  },
-  {
-    "league": "SA",
-    "homeTeam": "Udinese Calcio",
-    "awayTeam": "US Cremonese",
-    "date": "2026-05-17T18:45:00Z",
     "status": "TIMED"
   },
   {
